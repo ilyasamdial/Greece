@@ -1,0 +1,470 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --color-grey: rgba(52, 69, 145, 0.219);
+    --color-gold: gold;
+}
+
+body {
+    background-image: url(images/bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* ================= NAV ================= */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-image: linear-gradient(to right, rgba(251, 255, 0), rgb(117, 121, 65));
+    padding: 10px 30px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* logo left, links right */
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+header nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-image: linear-gradient(to right, rgb(117, 121, 65) , rgb(184, 187, 38));
+    padding: 5px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+header nav ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+     padding: 8px 12px;
+    transition: 0.3s;
+}
+
+header nav ul li a:hover {
+    background-color: var(--color-grey);
+    color: var(--color-gold);
+    border-radius: 5px;
+    padding-top: .5px;
+}
+
+
+
+/* ================= DOOR ================= */
+main {
+
+    background-image: linear-gradient(to right,
+            rgba(37, 45, 58, 0.5),
+            rgba(80, 79, 79, 0.452));
+    
+    padding-bottom: 100px;
+
+}
+
+.door-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    z-index: 1000;
+    animation: disableDoors 3s forwards;
+}
+
+.door {
+    width: 50%;
+    height: 100vh;
+    object-fit: cover;
+    transform-style: preserve-3d;
+}
+
+.left {
+    transform-origin: left center;
+    animation: open-left 3s ease-in-out forwards;
+}
+
+.right {
+    transform-origin: right center;
+    animation: open-right 3s ease-in-out forwards;
+}
+
+@keyframes open-left {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(-110deg);
+    }
+}
+
+@keyframes open-right {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(110deg);
+    }
+}
+
+@keyframes disableDoors {
+    0% {
+        pointer-events: auto;
+    }
+
+    99% {
+        pointer-events: auto;
+    }
+
+    100% {
+        pointer-events: none;
+    }
+}
+
+/* ================= CONTENT ================= */
+
+.content {
+    font-family: "GFS Didot", serif;
+    min-height: 100vh;
+    color: rgb(229, 255, 0);
+    padding-top: 120px;
+    padding-bottom: 100px;
+}
+
+/* Main Story Layout */
+.content .main-story {
+    display: flex;
+    justify-content: center;
+}
+
+
+.content .story {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding-top: 90px;
+}
+
+
+.content .story p {
+    width: 50%;
+    line-height: 1.8;
+}
+
+
+.content .story img {
+    width: 50%;
+    border-radius: 10px;
+    height: 500px;
+}
+
+
+.content .story h2 {
+    color: rgb(229, 255, 0);
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.content .gods {
+    padding: 100px 60px ;
+}
+
+.content .gods h2 {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.content .gods .god {
+
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.content .gods .god .god-story img {
+    width: 50%;
+    border-radius: 10px;
+}
+
+.content .gods .god .god-story {
+    display: flex;
+}
+
+@media (orientation: portrait) {
+    .content {
+        padding-top: 80px;
+
+    }
+
+    .content .story {
+        width: 100%;
+        padding: 0;
+    }
+
+    .content .story .main-story p {
+        width: 100%;
+        padding: 0;
+    }
+
+    .content img {
+        display: none;
+    }
+
+    .content .gods {
+        padding: 10px 0;
+    }
+}
+
+.gods .lights {
+    display: flex;
+    position: absolute;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    flex-wrap: wrap;
+    animation: lights 5s ease-in forwards;
+}
+
+@keyframes lights {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    15% {
+        opacity: .5;
+        transform: translateY(12px);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(12px);
+
+    }
+
+    45% {
+        opacity: .5;
+        transform: translateY(12px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translateY(12px)
+    }
+
+    75% {
+        opacity: .2;
+        transform: translateY(12px)
+    }
+
+    100% {
+        opacity: .5;
+        transform: translateY(12px)
+    }
+}
+
+.gods .poseidon {
+    margin-top: 1px;
+}
+
+.gods .poseidon img {
+    height: 400px;
+}
+
+.gods .god .sea {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    opacity: .5;
+}
+
+
+.Philosophers{
+    padding: 100px 60px;
+}
+
+.philo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right , rgba(255, 255, 255, 0.548) , var(--color-grey));
+}
+.philo p b{
+    font-size: 20px;
+    color: rgb(72, 80, 6);
+}
+.socrates{
+    margin-top: 100px;
+}
+.socrates img{
+    width: 275px;
+}
+.socrates-story{
+    padding-left: 10px;
+}
+.Philosophers img{
+    border-radius: 10px;
+}
+.Philosophers .plato{
+    margin-top: 100px;
+}
+
+
+footer {
+    min-height: 50vh;
+    background-image: linear-gradient(to right, rgb(234, 236, 78), rgb(218, 238, 130));
+    width: 100%;
+    padding: 40px 20px;
+    position: relative;
+    bottom: 0;
+}
+
+footer .contact {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 80px;
+}
+
+.phone,
+.gmail,
+.linkedin,
+.fb,
+.adresse,
+.insta ,
+.github {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    color: blue;
+    gap: 8px;
+}
+
+.phone p,
+.gmail p,
+.adresse p {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+.fb i {
+    color: purple;
+    font-size: 30px;
+}
+
+.linkedin i,
+.insta i 
+.github i{
+    color: purple;
+    font-size: 35px;
+}
+
+.social-media {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.linkedin::before,
+.insta::before ,
+.github::before {
+    content: "";
+    position: absolute;
+    background-color: blue;
+    width: 2px;
+    height: 40px;
+}
+.hidden {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 4s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer hr {
+    height: 2px;
+    background-color: purple;
+    border: none;
+    margin: 20px 0;
+}
+
+footer p {
+    color: #333;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+footer .copyright {
+    display: flex;
+    justify-content: center;
+    color: #333;
+    font-size: 12px;
+    margin-top: 10px;
+    font-size: 18px;
+}
